@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>裤佬永久官网</title>
+    <style>
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+            -webkit-tap-highlight-color: transparent; 
+        }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", sans-serif; 
+            /* 史诗级：Apple 官方高奢艺术感微渐变，带呼吸感的光影底色 */
+            background: radial-gradient(140% 60% at 50% 0%, #ffffff 0%, #f4f4f9 45%, #e3e3ed 100%);
+            color: #000000; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+            align-items: center; 
+            padding: 55px 20px env(safe-area-inset-bottom); 
+            letter-spacing: -0.4px;
+            overflow-x: hidden;
+        }
+        .container { 
+            width: 100%; 
+            max-width: 390px; 
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        .header-area { 
+            margin-bottom: 42px; 
+            text-align: center;
+            /* 仿原生推入动画：高级非线性减震加载 */
+            animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) both;
+        }
+        h1 { 
+            font-size: 27px; 
+            font-weight: 700; 
+            letter-spacing: -0.8px; 
+            color: #1d1d1f; 
+            margin-bottom: 22px; 
+            text-shadow: 0 1px 1px rgba(0,0,0,0.02);
+        }
+        .avatar-wrapper { 
+            position: relative; 
+            width: 94px; 
+            height: 94px; 
+            margin: 0 auto 20px auto; 
+            transform-style: preserve-3d;
+        }
+        .avatar-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            /* 顶级圆角：致敬Apple超椭圆曲率 */
+            clip-path: url(#squircle-clip);
+            -webkit-clip-path: url(#squircle-clip);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.07), 
+                0 10px 20px rgba(0, 0, 0, 0.04),
+                0 1px 0 rgba(0,0,0,0.05); 
+            border: 0.5px solid rgba(0, 0, 0, 0.05);
+            transition: transform 0.5s cubic-bezier(0.15, 0.95, 0.3, 1);
+        }
+        .avatar-img:active {
+            transform: scale(0.95) translateZ(10px);
+        }
+        .subtitle { 
+            font-size: 14.5px; 
+            color: #8e8e93; 
+            line-height: 1.5; 
+            padding: 0 24px; 
+            font-weight: 400;
+            text-shadow: 0 1px 0 #ffffff;
+        }
+        
+        /* 史诗级：复合型全景超白毛玻璃，内嵌高光断层边框 */
+        .ios-card { 
+            background: rgba(255, 255, 255, 0.76);
+            backdrop-filter: blur(35px) saturate(210%);
+            -webkit-backdrop-filter: blur(35px) saturate(210%);
+            border-radius: 18px; 
+            margin-top: 18px; 
+            overflow: hidden; 
+            box-shadow: 
+                0 4px 35px rgba(0, 0, 0, 0.015), 
+                0 24px 48px rgba(31, 31, 46, 0.04),
+                0 0.5px 0 rgba(255, 255, 255, 0.8) inset;
+            border: 0.5px solid rgba(0, 0, 0, 0.07);
+            animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) 0.08s both;
+            transform: translateZ(0);
+            transition: transform 0.3s cubic-bezier(0.15, 0.95, 0.3, 1), box-shadow 0.3s ease;
+        }
+        
+        /* 史诗级：物理独立单元触控 */
+        .ios-item { 
+            display: flex; 
+            align-items: center; 
+            width: 100%; 
+            padding: 19px 22px; 
+            background: transparent; 
+            border: none; 
+            outline: none; 
+            cursor: pointer; 
+            position: relative; 
+            transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
+        }
+        /* 极精细内横线 */
+        .ios-item:not(:last-child)::after { 
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            right: 0; 
+            left: 58px; 
+            height: 0.5px; 
+            background-color: rgba(60, 60, 67, 0.11); 
+        }
+        /* 按压时产生微妙的向内凹陷沉降，质感极强 */
+        .ios-item:active { 
+            background-color: rgba(0, 0, 0, 0.035); 
+            transform: scale(0.972) translateZ(-5px);
+        }
+        /* 左侧高饱和应用图标 */
+        .item-icon {
+            font-size: 23px;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.04));
+            transition: transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
+        }
+        .ios-item:active .item-icon {
+            transform: scale(0.92);
+        }
+        /* 中央内容层 */
+        .item-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            text-align: left; 
+            padding-right: 16px;
+        }
+        .item-title {
+            font-size: 16px; 
+            font-weight: 600; 
+            color: #1d1d1f; 
+            margin-bottom: 3.5px;
+            transition: color 0.2s;
+        }
+        .item-desc {
+            font-size: 12.5px;
+            color: #8e8e93; 
+            font-weight: 400;
+        }
+        /* 右侧原生微动Chevron */
+        .chevron { 
+            color: #c4c4c6; 
+            display: flex;
+            align-items: center;
+            transition: transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
+        }
+        /* 模拟iOS系统设置按压时箭头的跟手侧滑暗示 */
+        .ios-item:active .chevron {
+            transform: translateX(4px) scale(0.95);
+        }
+        
+        .footer-text { 
+            font-size: 12.5px; 
+            color: #c5c5c7; 
+            margin-top: auto; 
+            padding-top: 65px; 
+            text-align: center;
+            font-weight: 400;
+            animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) 0.16s both;
+        }
+
+        /* 模拟苹果流式减震动画 */
+        @keyframes iosIntro {
+            from {
+                opacity: 0;
+                transform: translateY(20px) translateZ(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) translateZ(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <svg width="0" height="0" style="position:absolute;">
+        <defs>
+            <clipPath id="squircle-clip" clipPathUnits="objectBoundingBox">
+                <path d="M 0,0.5 C 0,0.15 0.15,0 0.5,0 C 0.85,0 1,0.15 1,0.5 C 1,0.85 0.85,1 0.5,1 C 0.15,1 0,0.85 0,0.5 Z" />
+            </clipPath>
+        </defs>
+    </svg>
+
+    <div class="container" id="interactive-stage">
+        <div class="header-area">
+            <h1>裤佬永久官网</h1>
+            <div class="avatar-wrapper">
+                <img class="avatar-img" src="https://mpimg.cn/view.php/f28da3eac8f392e9fa2ba91723b2bf4c.png" alt="裤佬头像">
+            </div>
+            <p class="subtitle">请收藏本页域名，永不迷路</p>
+        </div>
+        
+        <div class="ios-card" id="buttons-box"></div>
+    </div>
+    
+    <p class="footer-text">© 2026 裤佬. All Rights Reserved.</p>
+    
+    <script>
+        // ========================== ⚙️ 核心密文配置区 ==========================
+        const BUTTONS_CONFIG = [
+            { 
+                icon: "🚀",
+                name: "裤佬网盘最新地址", 
+                desc: "超多优质软件每日更新，免翻墙，不限速",
+                encryptedUrl: "aHR0cHM6Ly81MjY5MDAueHl6" 
+            },
+            { 
+                icon: "✈️",
+                name: "官方Telegram频道", 
+                desc: "最新资源动态，全网综合分享",
+                encryptedUrl: "aHR0cHM6Ly90Lm1lL3N0eW1laQ==" 
+            },
+            { 
+                icon: "✈️",
+                name: "官方Telegram群聊", 
+                desc: "0权限，言论自由，畅享交流",
+                encryptedUrl: "aHR0cHM6Ly90Lm1lLytqNjY0RW1WdjhtMHdaR1Zr" 
+            }
+        ];
+        // ===================================================================
+
+        // 渲染与高阶交互绑定
+        function initLauncher() {
+            const box = document.getElementById('buttons-box');
+            box.innerHTML = ''; 
+            
+            BUTTONS_CONFIG.forEach(btn => {
+                const buttonElement = document.createElement('button');
+                buttonElement.className = 'ios-item';
+                
+                buttonElement.innerHTML = `
+                    <div class="item-icon">${btn.icon}</div>
+                    <div class="item-content">
+                        <span class="item-title">${btn.name}</span>
+                        <span class="item-desc">${btn.desc}</span>
+                    </div>
+                    <div class="chevron">
+                        <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 1L6 6L1 11" stroke="#C4C4C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                `;
+                
+                buttonElement.onclick = function() {
+                    try {
+                        window.location.href = atob(btn.encryptedUrl);
+                    } catch (e) { 
+                        alert("安全解析失败"); 
+                    }
+                };
+                box.appendChild(buttonElement);
+            });
+
+            // 史诗级追加：针对移动端手势的 3D 陀螺仪视差与触控跟手特效
+            const stage = document.getElementById('interactive-stage');
+            const card = document.getElementById('buttons-box');
+            
+            if (window.innerWidth <= 500) { // 精准限缩在移动端手势触碰
+                stage.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left - (rect.width / 2);
+                    const y = e.clientY - rect.top - (rect.height / 2);
+                    
+                    // 仅允许产生极其细微的 1.5 度物理倾斜，营造高档空气感
+                    card.style.transform = `rotateX(${-y / 150}deg) rotateY(${x / 150}deg) translateZ(2px)`;
+                    card.style.boxShadow = `${-x / 30}px ${-y / 30}px 50px rgba(0,0,0,0.03), 0 24px 48px rgba(31,31,46,0.04)`;
+                });
+
+                stage.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+                    card.style.boxShadow = '0 4px 30px rgba(0,0,0,0.015), 0 24px 48px rgba(31,31,46,0.04)';
+                });
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', initLauncher);
+    </script>
+</body>
+</html>
