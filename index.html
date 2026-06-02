@@ -13,14 +13,13 @@
         }
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "SF Pro Icons", sans-serif; 
-            /* 史诗级：Apple 官方高奢艺术感微渐变，带呼吸感的光影底色 */
             background: radial-gradient(140% 60% at 50% 0%, #ffffff 0%, #f4f4f9 45%, #e3e3ed 100%);
             color: #000000; 
             display: flex; 
             flex-direction: column; 
             min-height: 100vh; 
             align-items: center; 
-            padding: 55px 20px env(safe-area-inset-bottom); 
+            padding: 40px 16px env(safe-area-inset-bottom); 
             letter-spacing: -0.4px;
             overflow-x: hidden;
         }
@@ -28,12 +27,11 @@
             width: 100%; 
             max-width: 390px; 
             transform-style: preserve-3d;
-            perspective: 1000px;
+            perspective: 1200px;
         }
         .header-area { 
-            margin-bottom: 42px; 
+            margin-bottom: 24px; 
             text-align: center;
-            /* 仿原生推入动画：高级非线性减震加载 */
             animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) both;
         }
         h1 { 
@@ -41,23 +39,21 @@
             font-weight: 700; 
             letter-spacing: -0.8px; 
             color: #1d1d1f; 
-            margin-bottom: 22px; 
+            margin-bottom: 18px; 
             text-shadow: 0 1px 1px rgba(0,0,0,0.02);
         }
         .avatar-wrapper { 
             position: relative; 
             width: 94px; 
             height: 94px; 
-            margin: 0 auto 20px auto; 
+            margin: 0 auto 16px auto; 
             transform-style: preserve-3d;
         }
         .avatar-img { 
             width: 100%; 
             height: 100%; 
             object-fit: cover; 
-            /* 顶级圆角：致敬Apple超椭圆曲率 */
-            clip-path: url(#squircle-clip);
-            -webkit-clip-path: url(#squircle-clip);
+            border-radius: 24px;
             box-shadow: 
                 0 25px 50px rgba(0, 0, 0, 0.07), 
                 0 10px 20px rgba(0, 0, 0, 0.04),
@@ -75,15 +71,48 @@
             padding: 0 24px; 
             font-weight: 400;
             text-shadow: 0 1px 0 #ffffff;
+            margin-bottom: 18px;
         }
-        
-        /* 史诗级：复合型全景超白毛玻璃，内嵌高光断层边框 */
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 0 4px;
+            margin-bottom: 8px;
+        }
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 10px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: background-color 0.2s, transform 0.15s cubic-bezier(0.15, 0.95, 0.3, 1);
+        }
+        .social-btn:active {
+            background: rgba(0, 0, 0, 0.05);
+            transform: scale(0.96);
+        }
+        .social-btn svg {
+            margin-right: 6px;
+            flex-shrink: 0;
+        }
+
         .ios-card { 
             background: rgba(255, 255, 255, 0.76);
             backdrop-filter: blur(35px) saturate(210%);
             -webkit-backdrop-filter: blur(35px) saturate(210%);
-            border-radius: 18px; 
-            margin-top: 18px; 
+            border-radius: 20px; 
+            margin-top: 12px; 
             overflow: hidden; 
             box-shadow: 
                 0 4px 35px rgba(0, 0, 0, 0.015), 
@@ -92,15 +121,13 @@
             border: 0.5px solid rgba(0, 0, 0, 0.07);
             animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) 0.08s both;
             transform: translateZ(0);
-            transition: transform 0.3s cubic-bezier(0.15, 0.95, 0.3, 1), box-shadow 0.3s ease;
         }
         
-        /* 史诗级：物理独立单元触控 */
         .ios-item { 
             display: flex; 
             align-items: center; 
             width: 100%; 
-            padding: 19px 22px; 
+            padding: 16px 20px; 
             background: transparent; 
             border: none; 
             outline: none; 
@@ -108,107 +135,170 @@
             position: relative; 
             transition: background-color 0.3s ease, transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
         }
-        /* 极精细内横线 */
         .ios-item:not(:last-child)::after { 
             content: ''; 
             position: absolute; 
             bottom: 0; 
             right: 0; 
-            left: 58px; 
+            left: 56px; 
             height: 0.5px; 
             background-color: rgba(60, 60, 67, 0.11); 
         }
-        /* 按压时产生微妙的向内凹陷沉降，质感极强 */
         .ios-item:active { 
             background-color: rgba(0, 0, 0, 0.035); 
-            transform: scale(0.972) translateZ(-5px);
+            transform: scale(0.975) translateZ(-5px);
         }
-        /* 左侧高饱和应用图标 */
-        .item-icon {
-            font-size: 23px;
+        
+        .item-icon-box {
+            width: 28px;
+            height: 28px;
             margin-right: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 24px;
-            filter: drop-shadow(0 3px 6px rgba(0,0,0,0.04));
-            transition: transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
+            border-radius: 7px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
         }
-        .ios-item:active .item-icon {
-            transform: scale(0.92);
-        }
-        /* 中央内容层 */
+        
         .item-content {
             flex: 1;
             display: flex;
             flex-direction: column;
             text-align: left; 
-            padding-right: 16px;
+            padding-right: 8px;
+            overflow: hidden;
         }
         .item-title {
-            font-size: 16px; 
+            font-size: 15.5px; 
             font-weight: 600; 
             color: #1d1d1f; 
-            margin-bottom: 3.5px;
-            transition: color 0.2s;
+            margin-bottom: 2px;
         }
         .item-desc {
-            font-size: 12.5px;
+            font-size: 12px;
             color: #8e8e93; 
             font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
         }
-        /* 右侧原生微动Chevron */
+
+        .copy-badge {
+            font-size: 11px;
+            font-weight: 600;
+            color: #007aff;
+            background: rgba(0, 122, 255, 0.08);
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-right: 10px;
+            opacity: 0.85;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        .ios-item:active .copy-badge {
+            transform: scale(0.9);
+        }
+
+        .exclusive-badge {
+            font-size: 11px;
+            font-weight: 700;
+            color: #ffffff;
+            background: linear-gradient(135deg, #ff2d55 0%, #ff9500 100%);
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-right: 10px;
+            box-shadow: 0 2px 6px rgba(255,45,85,0.3);
+            flex-shrink: 0;
+            animation: pulseGlow 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.9; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.03); }
+            100% { opacity: 0.9; transform: scale(1); }
+        }
+
         .chevron { 
             color: #c4c4c6; 
             display: flex;
             align-items: center;
-            transition: transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1);
+            flex-shrink: 0;
         }
-        /* 模拟iOS系统设置按压时箭头的跟手侧滑暗示 */
         .ios-item:active .chevron {
-            transform: translateX(4px) scale(0.95);
+            transform: translateX(3px) scale(0.95);
         }
         
+        .toast-overlay {
+            position: fixed;
+            top: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-100px);
+            background: rgba(30, 30, 30, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: #ffffff;
+            padding: 12px 22px;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            z-index: 9999;
+            opacity: 0;
+            transition: transform 0.4s cubic-bezier(0.15, 0.95, 0.3, 1), opacity 0.4s;
+            pointer-events: none;
+        }
+        .toast-overlay.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
         .footer-text { 
             font-size: 12.5px; 
             color: #c5c5c7; 
-            margin-top: auto; 
-            padding-top: 65px; 
             text-align: center;
             font-weight: 400;
+            padding: 40px 0 10px 0;
             animation: iosIntro 0.9s cubic-bezier(0.15, 0.95, 0.3, 1) 0.16s both;
         }
 
-        /* 模拟苹果流式减震动画 */
         @keyframes iosIntro {
-            from {
-                opacity: 0;
-                transform: translateY(20px) translateZ(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0) translateZ(0);
-            }
+            from { opacity: 0; transform: translateY(20px) translateZ(-10px); }
+            to { opacity: 1; transform: translateY(0) translateZ(0); }
         }
     </style>
 </head>
 <body>
 
-    <svg width="0" height="0" style="position:absolute;">
-        <defs>
-            <clipPath id="squircle-clip" clipPathUnits="objectBoundingBox">
-                <path d="M 0,0.5 C 0,0.15 0.15,0 0.5,0 C 0.85,0 1,0.15 1,0.5 C 1,0.85 0.85,1 0.5,1 C 0.15,1 0,0.85 0,0.5 Z" />
-            </clipPath>
-        </defs>
-    </svg>
+    <div class="toast-overlay" id="toast-box">✅ 订阅链接已成功复制</div>
 
     <div class="container" id="interactive-stage">
         <div class="header-area">
             <h1>裤佬</h1>
             <div class="avatar-wrapper">
-                <img class="avatar-img" src="https://mpimg.cn/view.php/f28da3eac8f392e9fa2ba91723b2bf4c.png" alt="裤佬头像">
+                <img class="avatar-img" src="https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/branch/Jsnzkpg/stymei/touxiang.gif" alt="裤佬动态头像">
             </div>
             <p class="subtitle">请收藏本页域名，永不迷路</p>
+            
+            <div class="social-grid">
+                <a href="https://t.me/stymei" target="_blank" class="social-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                    TG频道
+                </a>
+                <a href="https://t.me/+j664EmVv8m0wZGVk" target="_blank" class="social-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+                    TG群聊
+                </a>
+                <a href="https://github.com/Jsnzkpg/Jsnzkpg" target="_blank" class="social-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4M9 18c-4.51 2-5-2-7-2"/></svg>
+                    Github仓库
+                </a>
+                <a href="https://codeberg.org/Jsnzkpg/Jsnzkpg" target="_blank" class="social-btn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1d1d1f" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4M9 18c-4.51 2-5-2-7-2"/></svg>
+                    镜像仓库
+                </a>
+            </div>
         </div>
         
         <div class="ios-card" id="buttons-box"></div>
@@ -217,31 +307,139 @@
     <p class="footer-text">© 2026 裤佬. All Rights Reserved.</p>
     
     <script>
-        // ========================== ⚙️ 核心密文配置区 ==========================
         const BUTTONS_CONFIG = [
             { 
-                icon: "🚀",
-                name: "裤佬网盘最新地址", 
-                desc: "超多优质软件每日更新，免翻墙，不限速",
-                encryptedUrl: "aHR0cHM6Ly81MjY5MDAueHl6" 
+                name: "裤佬软件仓库", 
+                desc: "每日更新精品软件，免翻墙，不限速，可直链",
+                bg: "linear-gradient(135deg, #ff2d55 0%, #ff9500 100%)", 
+                url: "https://526900.xyz",
+                isExclusive: true, 
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polygon points="12 2 2 22 12 17 22 22 12 2"/></svg>`
             },
             { 
-                icon: "✈️",
-                name: "官方Telegram频道", 
-                desc: "最新资源动态，全网综合分享",
-                encryptedUrl: "aHR0cHM6Ly90Lm1lL3N0eW1laQ==" 
+                name: "裤佬书签收藏", 
+                desc: "jsnzkpg.dhsv.eu.org",
+                bg: "#007aff",
+                url: "https://jsnzkpg.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>`
             },
             { 
-                icon: "✈️",
-                name: "官方Telegram群聊", 
-                desc: "0权限，言论自由，畅享交流",
-                encryptedUrl: "aHR0cHM6Ly90Lm1lLytqNjY0RW1WdjhtMHdaR1Zr" 
+                name: "裤佬美区ID", 
+                desc: "id.dhsv.eu.org",
+                bg: "#34c759",
+                url: "https://id.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`
+            },
+            { 
+                name: "裤佬代理加速", 
+                desc: "proxy.dhsv.eu.org",
+                bg: "#af52de",
+                url: "https://proxy.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`
+            },
+            { 
+                name: "裤佬直链托管", 
+                desc: "upload.dhsv.eu.org",
+                bg: "#ff9500",
+                url: "https://upload.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v4M17 8l-5-5-5 5M12 3v12"/></svg>`
+            },
+            { 
+                name: "裤佬订阅转换", 
+                desc: "zh.dhsv.eu.org",
+                bg: "#5856d6",
+                url: "https://zh.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M17 1l4 4-4 4M3 5h18M7 23l-4-4 4-4M21 19H3"/></svg>`
+            },
+            { 
+                name: "裤佬音乐畅听", 
+                desc: "music.dhsv.eu.org",
+                bg: "#ff2d55",
+                url: "https://music.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>`
+            },
+            { 
+                name: "裤佬TG代理", 
+                desc: "tg.dhsv.eu.org",
+                bg: "#5ac8fa",
+                url: "https://tg.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4Z"/></svg>`
+            },
+            { 
+                name: "裤佬网盘搜索", 
+                desc: "pan.dhsv.eu.org",
+                bg: "#1d1d1f",
+                url: "https://pan.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`
+            },
+            { 
+                name: "裤佬临时邮箱", 
+                desc: "email.dhsv.eu.org",
+                bg: "#ff3b30",
+                url: "https://email.dhsv.eu.org",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>`
+            },
+            { 
+                name: "翻墙永久订阅", 
+                desc: "点击自动复制纯文本专属节点配置链接",
+                bg: "#4cd964",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>`
+            },
+            { 
+                name: "IPTV永久订阅", 
+                desc: "点击一键捕获电视直播源 M3U 配置",
+                bg: "#ffcc00",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg1.m3u",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>`
+            },
+            { 
+                name: "TVbox永久订阅", 
+                desc: "多端兼容影视仓/TVBox通用配置接口",
+                bg: "#000000",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg2",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`
+            },
+            { 
+                name: "UZ影视永久订阅", 
+                desc: "点击复制 UZ 影视客户端最新专属源",
+                bg: "#ff5e00",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg3",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M23 7a2 2 0 0 0-2-2h-4l-3-3H7L4 5H2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h21a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="4"/></svg>`
+            },
+            { 
+                name: "Cinetry永久订阅", 
+                desc: "精品海外影院全自动源直达链接",
+                bg: "#00c6ff",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg4",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/></svg>`
+            },
+            { 
+                name: "EchoTV永久订阅", 
+                desc: "回声电视端特定无广告极速接口",
+                bg: "#00dbde",
+                url: "https://codeberg.org/Jsnzkpg/Jsnzkpg/raw/Jsnzkpg/Jsnzkpg5",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 18h.01M8 21h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/></svg>`
+            },
+            { 
+                name: "猫源永久订阅", 
+                desc: "Github多重加速镜像节点秒解析",
+                bg: "#3a3d40",
+                url: "https://gh-proxy.org/https://raw.githubusercontent.com/Jsnzkpg/stymei/Jsnzkpg/index.js.md5",
+                svg: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M12 2c5.523 0 10 4.477 10 10a9.96 9.96 0 0 1-6.383 9.302c-.5.092-.682-.217-.682-.483 0-.237.008-.868.013-1.703 2.782.605 3.369-1.343 3.369-1.343-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 1 22 12c0-5.523-4.477-10-10-10z"/></svg>`
             }
         ];
-        // ===================================================================
 
-        // 渲染与高阶交互绑定
-        function initLauncher() {
+        function showToast(text) {
+            const toast = document.getElementById('toast-box');
+            toast.innerText = text;
+            toast.className = "toast-overlay show";
+            setTimeout(() => {
+                toast.className = "toast-overlay";
+            }, 1800);
+        }
+
+        function renderButtons() {
             const box = document.getElementById('buttons-box');
             box.innerHTML = ''; 
             
@@ -249,12 +447,19 @@
                 const buttonElement = document.createElement('button');
                 buttonElement.className = 'ios-item';
                 
+                const badgeHtml = btn.isExclusive 
+                    ? `<span class="exclusive-badge">★ 独家</span>` 
+                    : `<span class="copy-badge">复制</span>`;
+                
                 buttonElement.innerHTML = `
-                    <div class="item-icon">${btn.icon}</div>
+                    <div class="item-icon-box" style="background: ${btn.bg}">
+                        ${btn.svg}
+                    </div>
                     <div class="item-content">
                         <span class="item-title">${btn.name}</span>
                         <span class="item-desc">${btn.desc}</span>
                     </div>
+                    ${badgeHtml}
                     <div class="chevron">
                         <svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 1L6 6L1 11" stroke="#C4C4C6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -263,38 +468,48 @@
                 `;
                 
                 buttonElement.onclick = function() {
-                    try {
-                        window.location.href = atob(btn.encryptedUrl);
-                    } catch (e) { 
-                        alert("安全解析失败"); 
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        navigator.clipboard.writeText(btn.url).then(() => {
+                            showToast(`✅ ${btn.name} 链接已复制`);
+                            setTimeout(() => { window.location.href = btn.url; }, 400);
+                        }).catch(() => {
+                            window.location.href = btn.url;
+                        });
+                    } else {
+                        const textArea = document.createElement("textarea");
+                        textArea.value = btn.url;
+                        textArea.style.position = "fixed";
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            showToast(`✅ ${btn.name} 链接已复制`);
+                            setTimeout(() => { window.location.href = btn.url; }, 400);
+                        } catch (err) {
+                            window.location.href = btn.url;
+                        }
+                        document.body.removeChild(textArea);
                     }
                 };
                 box.appendChild(buttonElement);
             });
 
-            // 史诗级追加：针对移动端手势的 3D 陀螺仪视差与触控跟手特效
-            const stage = document.getElementById('interactive-stage');
             const card = document.getElementById('buttons-box');
-            
-            if (window.innerWidth <= 500) { // 精准限缩在移动端手势触碰
-                stage.addEventListener('mousemove', (e) => {
+            if (window.innerWidth <= 500) {
+                window.addEventListener('mousemove', (e) => {
                     const rect = card.getBoundingClientRect();
                     const x = e.clientX - rect.left - (rect.width / 2);
                     const y = e.clientY - rect.top - (rect.height / 2);
-                    
-                    // 仅允许产生极其细微的 1.5 度物理倾斜，营造高档空气感
-                    card.style.transform = `rotateX(${-y / 150}deg) rotateY(${x / 150}deg) translateZ(2px)`;
-                    card.style.boxShadow = `${-x / 30}px ${-y / 30}px 50px rgba(0,0,0,0.03), 0 24px 48px rgba(31,31,46,0.04)`;
+                    card.style.transform = `rotateX(${-y / 280}deg) rotateY(${x / 280}deg) translateZ(2px)`;
                 });
 
-                stage.addEventListener('mouseleave', () => {
+                window.addEventListener('mouseleave', () => {
                     card.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
-                    card.style.boxShadow = '0 4px 30px rgba(0,0,0,0.015), 0 24px 48px rgba(31,31,46,0.04)';
                 });
             }
         }
         
-        document.addEventListener('DOMContentLoaded', initLauncher);
+        document.addEventListener('DOMContentLoaded', renderButtons);
     </script>
 </body>
 </html>
