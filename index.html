@@ -2,10 +2,48 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>裤佬Jsnzkpg永久发布页 · 终身入口官网·请收藏永不迷路</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+
+    <!-- ========== SEO 优化：帮助搜索引擎收录 ========== -->
+    <title>裤佬Jsnzkpg永久发布页 · 终身入口官网 · 请收藏永不迷路</title>
+    <meta name="description" content="裤佬Jsnzkpg永久发布页，提供全网最便宜的VPN机场梯子加速器服务，月付2元1000G流量，不限速不限设备不限地区，解锁Gemini/ChatGPT/奈飞。同时提供公益节点订阅、IPTV直播源、TVbox接口、苹果共享ID、代理加速、网盘搜索、临时邮箱等免费工具汇总。">
+    <meta name="keywords" content="裤佬,Jsnzkpg,永久发布页,VPN,机场,梯子,加速器,节点订阅,IPTV,直播源,TVbox,苹果共享ID,代理加速,网盘搜索,临时邮箱,免费公益,解锁ChatGPT,解锁奈飞,月付2元,不限速">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://uutool.cn/">
+    <meta property="og:title" content="裤佬Jsnzkpg永久发布页 · 终身入口官网">
+    <meta property="og:description" content="裤佬Jsnzkpg公益发布页，提供VPN机场梯子、节点订阅、IPTV直播源、TVbox接口、苹果共享ID、代理加速等免费工具，永久入口请收藏。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uutool.cn/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="裤佬Jsnzkpg永久发布页">
+    <meta name="twitter:description" content="裤佬Jsnzkpg公益发布页，全网最便宜VPN机场，月付2元1000G，解锁ChatGPT/奈飞。">
+    <!-- 结构化数据（JSON-LD）帮助搜索引擎理解网站 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "裤佬Jsnzkpg永久发布页",
+        "description": "裤佬Jsnzkpg提供全网最便宜的VPN机场梯子加速器服务，月付2元1000G流量，不限速不限设备不限地区，解锁Gemini/ChatGPT/奈飞。同时提供公益节点订阅、IPTV直播源、TVbox接口、苹果共享ID、代理加速、网盘搜索、临时邮箱等免费工具。",
+        "url": "https://uutool.cn/",
+        "about": {
+            "@type": "Thing",
+            "name": "VPN机场梯子加速器",
+            "description": "全网最便宜的VPN机场，月付2元1000G流量，不限速不限设备不限地区，解锁Gemini/ChatGPT/奈飞"
+        },
+        "mainEntity": {
+            "@type": "ItemList",
+            "name": "裤佬公益工具汇总",
+            "description": "包含节点订阅、IPTV直播源、TVbox接口、苹果共享ID、代理加速、网盘搜索、临时邮箱、在线TV、音乐网站等免费公益服务",
+            "numberOfItems": 25
+        }
+    }
+    </script>
+    <!-- ========== SEO 结束 ========== -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* 完全保持原有样式，未做任何视觉改动 */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -69,7 +107,7 @@
             flex-direction: column;
             min-height: 100vh;
             align-items: center;
-            padding: 40px 16px env(safe-area-inset-bottom);
+            padding: 16px 16px env(safe-area-inset-bottom);
             letter-spacing: -0.4px;
             overflow-x: hidden;
             transition: color 0.3s ease;
@@ -113,6 +151,62 @@
             max-width: 390px;
             transform-style: preserve-3d;
             perspective: 1200px;
+        }
+        .marquee-wrapper {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 20px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(28px) saturate(200%);
+            -webkit-backdrop-filter: blur(28px) saturate(200%);
+            border: 0.5px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04), 0 0.5px 0 rgba(255, 255, 255, 0.8) inset;
+            padding: 0 4px;
+            transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        body.dark .marquee-wrapper {
+            background: rgba(28, 28, 35, 0.35);
+            border: 0.5px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            animation: marqueeScroll 14s linear infinite;
+            width: max-content;
+            padding: 10px 0;
+            will-change: transform;
+        }
+        .marquee-track a {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1d1d1f;
+            text-decoration: none;
+            padding: 0 20px;
+            letter-spacing: 0.2px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #3a3a3e 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: opacity 0.2s;
+        }
+        body.dark .marquee-track a {
+            background: linear-gradient(135deg, #f5f5f7 0%, #b0b0b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .marquee-track a:active {
+            opacity: 0.6;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marqueeScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .header-area {
             margin-bottom: 24px;
@@ -372,6 +466,13 @@
     </div>
 
     <div class="container">
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <a href="https://789.st/zOo5vlX" target="_blank">全网最便宜的梯子加速器VPN机场，月付2块钱1000G流量，不限速不限设备不限地区，解锁Gemini/ChatGPT/奈飞</a>
+                <a href="https://789.st/zOo5vlX" target="_blank">全网最便宜的梯子加速器VPN机场，月付2块钱1000G流量，不限速不限设备不限地区，解锁Gemini/ChatGPT/奈飞</a>
+            </div>
+        </div>
+
         <div class="header-area">
             <h1>Jsnzkpg</h1>
             <div class="avatar-wrapper">
@@ -398,7 +499,7 @@
                 </a>
             </div>
         </div>
-        
+
         <div class="ios-card">
             <div class="bookmark-wrapper">
                 <div class="bookmark">
@@ -447,6 +548,7 @@
                             <div class="link-row"><div class="link-item"><a href="https://kuaishou.445569.xyz/list.m3u">快手直播源</a></div></div>
                             <div class="link-row"><div class="link-item"><a href="https://huya.445569.xyz/live.m3u">虎牙直播源</a></div></div>
                             <div class="link-row"><div class="link-item"><a href="https://douyu.445569.xyz/live.m3u">斗鱼直播源</a></div></div>
+                            <div class="link-row"><div class="link-item"><a href="https://yy.445569.xyz/live.m3u">YY直播源</a></div></div>
                             <div class="link-row"><div class="link-item"><a href="https://twitch.445569.xyz/live.m3u">Twitch直播源</a></div></div>
                             <div class="link-row"><div class="link-item"><a href="https://tiktok.445569.xyz/live.m3u">TikTok直播源[翻墙]</a></div></div>
                             <div class="link-row"><div class="link-item"><a href="https://stymei1.pages.dev/live.m3u">GTA游戏直播源</a></div></div>
